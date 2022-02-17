@@ -1,38 +1,229 @@
-.App {
-  text-align: center;
+
+
+*{
+  font-family: 'Roboto, sans-serif';
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/*Page for the quiz app*/
+.quiz {
+  height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: rgba(34, 100, 78, 0.534);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/*customised background for the quiz section*/
+.main {
+  width: 75%;
+  background: linear-gradient(to bottom, rgba(52, 131, 105, 0.534), black);
+  display: flex;
+  flex-direction: column;
+}
+/*Timer customised*/
+.timer {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 5px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: 600;
+  position: absolute;
+  bottom: 10px;
+  left: 80px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.top {
+  height: 50%;
+  position: relative;
+}
+
+.bottom {
+  height: 50%;
+}
+/*Section for questions and answers*/
+.trivia {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+/*Section where question shows */
+.question {
+  width: 80%;
+  background: linear-gradient(to bottom, powderblue, black);
+  border: 2px solid white;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 25px;
+}
+/*Answers display next to each other*/
+.answers {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+/*Answers section customised*/
+.answer {
+  width: 40%;
+  padding: 10px;
+  text-align: center;
+  background: cyan;
+  border: 1px solid white;
+  border-radius: 12px;
+  font-size: 25px;
+  font-weight: 450;
+  margin: 0 10px 20px 10px;
+  cursor: pointer;
+}
+
+.answer:hover, .answer.active {
+  background: rgb(14, 97, 129);
+}
+/*animation when answer is correct; shows cyan color at the beginning and waits 3s 
+before the color changes to green when answer is correct*/
+.answer.correct {
+  animation: correct 3s ease forwards;
+}
+
+@keyframes correct {
+  0%, 
+  22%,
+  42% {
+    background: cyan;
   }
-  to {
-    transform: rotate(360deg);
+  20%, 
+  40%,
+  60% {
+    background: slateblue;
+  }
+  62%, 
+  100% {
+    background: springgreen;
   }
 }
+/*animation when answer is wrong; shows cyan color at the beginning and waits 3s 
+before the color changes to red when answer is wrong*/
+.answer.wrong {
+  animation: wrong 3s ease forwards;
+}
+
+@keyframes wrong {
+  0%, 
+  22%,
+  42% {
+    background: cyan;
+  }
+  20%, 
+  40%,
+  60% {
+    background: slateblue;
+  }
+  62%, 
+  100% {
+    background: red;
+  }
+}
+/*centered contents in the money pyramid*/
+.pyramid {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*Money list items customised*/
+.winAmounts {
+  list-style: none;
+  width: 100%;
+  padding: 20px;
+}
+/*Show selected amount won*/
+.amountItem.active {
+  background-color: yellowgreen;
+}
+
+.amountItem {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.amountItemNumber {
+  font-size: 18px;
+  font-weight: 100;
+  width: 30%;
+}
+
+.amountItemMoney {
+  font-size: 20px;
+  font-weight: 300;
+}
+/*Outcome when asnwer is wrong or correct positioned in the center*/
+.outcome {
+  position: relative;
+  top: 0%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+/*Section to enter username and start game cutomised*/
+.start {
+  width: 250px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  justify-content: space-around;
+}
+/*Username field*/
+.startInput{
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.startInput:focus{
+  outline: none;
+}
+/*Button customised*/
+.startBtn{
+  width: 80%;
+  height: 50%;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-top: 30px;
+}
+
+.rule1 {
+ margin-bottom: 30px;
+ font-size: 20px;
+ color: rgb(214, 62, 62);
+}
+.playBtn{
+  width: 100%;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/*Sources used in this task include Hyperiondev Notes, previous tasks, Stackoverflow, You Tube, Reactjs.org and GeeksforGeeks */
